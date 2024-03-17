@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane minHeight="1000.0" minWidth="1400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="agh.ics.oop.presenter.SimulationPresenter">
+   <left>
+        <GridPane fx:id="mapGrid" alignment="CENTER" gridLinesVisible="true" prefHeight="1000.0" prefWidth="1100.0" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+        <VBox alignment="CENTER" prefHeight="1000.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+         <Label layoutX="78.0" layoutY="348.0" text="Global chart:">
+            <font>
+               <Font name="System Bold Italic" size="18.0" />
+            </font>
+         </Label>
+         <LineChart fx:id="simulationChart" prefHeight="228.0" prefWidth="271.0">
+            <xAxis>
+               <NumberAxis label="Day" side="BOTTOM" />
+            </xAxis>
+            <yAxis>
+               <NumberAxis label="Number of" side="LEFT" />
+            </yAxis>
+         </LineChart>
+         <Label text="Global statistics:">
+            <font>
+               <Font name="System Bold Italic" size="18.0" />
+            </font>
+         </Label>
+         <Label fx:id="day" text="days">
+            <graphic>
+               <Label text="Day:" />
+            </graphic>
+         </Label>
+         <Label fx:id="aliveAnimals" text="anims">
+            <graphic>
+               <Label text="Number of animals:" />
+            </graphic>
+         </Label>
+         <Label fx:id="alivePlants" text="plants">
+            <graphic>
+               <Label text="Number of plants:" />
+            </graphic>
+         </Label>
+         <Label fx:id="freeFields" text="fields">
+            <graphic>
+               <Label text="Free fields:" />
+            </graphic>
+         </Label>
+         <Label text="Most popular genotype:" />
+         <Label fx:id="bestGenotype1" text="gen1" />
+         <Label fx:id="avgEnergy" text="energy">
+            <graphic>
+               <Label text="Average energy level:" />
+            </graphic>
+         </Label>
+         <Label fx:id="avgLifespan" text="life">
+            <graphic>
+               <Label text="Average life length for dead animals:" />
+            </graphic>
+         </Label>
+         <Label fx:id="avgChildren" text="child">
+            <graphic>
+               <Label text="Average children number per animal:" />
+            </graphic>
+         </Label>
+         <Label layoutX="146.0" layoutY="699.0" />
+         <Label text="Animal statistics:">
+            <font>
+               <Font name="System Bold Italic" size="18.0" />
+            </font>
+         </Label>
+            <VBox fx:id="animalStats" alignment="CENTER">
+            </VBox>
+         <Label fx:id="animalSelected" alignment="CENTER" prefHeight="3.0" prefWidth="207.0" text="No animal selected" />
+         <Label />
+             <Button fx:id="pause" alignment="CENTER" onAction="#onPauseClicked" prefWidth="106.0" text="Pause simulation" />
+         <Label />
+             <Button fx:id="stop" alignment="CENTER" onAction="#onStopClicked" text="Stop simulation" />
+         <Label>
+            <font>
+               <Font size="9.0" />
+            </font>
+         </Label>
+         <Label text="Legend:">
+            <font>
+               <Font name="System Bold Italic" size="17.0" />
+            </font>
+         </Label>
+         <Label text="The darker the animal is, the more HP it has">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label text="Golden animal - the most popular genotype">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <ToolBar prefHeight="40.0" prefWidth="200.0">
+           <items>
+               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="LIGHTGREEN" height="36.0" stroke="BLACK" strokeType="INSIDE" width="40.0" />
+               <Label text="Field not preferred by grass" />
+           </items>
+         </ToolBar>
+         <ToolBar prefHeight="40.0" prefWidth="200.0">
+           <items>
+               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="36.0" stroke="BLACK" strokeType="INSIDE" width="40.0" />
+               <Label text="Field preferred by grass" />
+           </items>
+         </ToolBar>
+         <ToolBar layoutX="10.0" layoutY="791.0" prefHeight="40.0" prefWidth="200.0">
+            <items>
+               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="ORCHID" height="36.0" stroke="BLACK" strokeType="INSIDE" width="40.0" />
+               <Label text="Currently tracked animal" />
+            </items>
+         </ToolBar>
+        </VBox>
+   </right>
+</BorderPane>

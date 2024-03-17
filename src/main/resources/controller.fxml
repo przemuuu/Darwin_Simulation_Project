@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane minHeight="1000.0" minWidth="1400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="agh.ics.oop.gui.SimulationController">
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+   <cursor>
+      <Cursor fx:constant="DEFAULT" />
+   </cursor>
+   <left>
+        <VBox alignment="CENTER" prefHeight="1000.0" prefWidth="490.0" BorderPane.alignment="CENTER">
+         <Label fx:id="config1" layoutX="93.0" layoutY="101.0" text="Darwin simulation project" textAlignment="CENTER">
+            <font>
+               <Font name="System Bold Italic" size="28.0" />
+            </font>
+         </Label>
+            <VBox fx:id="textData" alignment="CENTER">
+                <ToolBar>
+                    <Label fx:id="config" text="Ready configurations:  " textAlignment="CENTER" />
+                    <ComboBox fx:id="configurations" prefWidth="150.0" promptText="Select configuration" visibleRowCount="5" />
+                </ToolBar>
+                <ToolBar>
+                    <Label text="Number of starting animals:  " textAlignment="CENTER" />
+                    <TextField fx:id="numberOfAnimals" maxWidth="70" promptText="..." />
+                </ToolBar>
+                <ToolBar>
+                    <Label text="Height of the map:  " textAlignment="CENTER" />
+                    <TextField fx:id="heightMap" maxWidth="70" promptText="..." />
+                </ToolBar>
+                <ToolBar>
+                    <Label text="Width of the map:   " textAlignment="CENTER" />
+                    <TextField fx:id="widthMap" maxWidth="70" promptText="..." />
+                </ToolBar>
+                <ToolBar>
+                    <Label text="Number of starting plants:   " textAlignment="CENTER" />
+                    <TextField fx:id="numberOfPlants" maxWidth="70" promptText="..." />
+                </ToolBar>
+                <ToolBar>
+                    <Label text="Energy restored per plant eaten:   " textAlignment="CENTER" />
+                    <TextField fx:id="energyForPlant" maxWidth="70" promptText="..." />
+                </ToolBar>
+                <ToolBar>
+                    <Label text="Number of plants growing every day:   " textAlignment="CENTER" />
+                    <TextField fx:id="everyDayGrowing" maxWidth="70" prefWidth="260.0" promptText="..." />
+                </ToolBar>
+                <ToolBar>
+                    <Label text="Starting energy for animals:   " textAlignment="CENTER" />
+                    <TextField fx:id="animalStartEnergy" maxWidth="70" promptText="..." />
+                </ToolBar>
+                <ToolBar>
+                    <Label text="Energy used per move:  " textAlignment="CENTER" />
+                    <TextField fx:id="moveEnergy" maxWidth="70" promptText="..." />
+                </ToolBar>
+                <ToolBar>
+                    <Label text="Energy used in reproduction:   " textAlignment="CENTER" />
+                    <TextField fx:id="reproductionEnergy" maxWidth="70" promptText="..." />
+                </ToolBar>
+                <ToolBar>
+                    <Label text="Energy needed for animal to breed:   " textAlignment="CENTER" />
+                    <TextField fx:id="energyToBreed" maxWidth="70" promptText="..." />
+                </ToolBar>
+                <ToolBar>
+                    <Label text="Genome length:   " textAlignment="CENTER" />
+                    <TextField fx:id="genomeLength" maxWidth="70" promptText="..." />
+                </ToolBar>
+                <ToolBar>
+                    <Label text="Speed of the simulation day (in milliseconds):   " textAlignment="CENTER" />
+                    <TextField fx:id="simulationSpeed" maxWidth="70" promptText="..." />
+                </ToolBar>
+                <ToolBar>
+                    <Label text="Minimum number of mutations:   " textAlignment="CENTER" />
+                    <TextField fx:id="minMutation" maxWidth="70" promptText="..." />
+                </ToolBar>
+                <ToolBar>
+                    <Label text="Maximum number of mutations:   " textAlignment="CENTER" />
+                    <TextField fx:id="maxMutation" maxWidth="70" promptText="..." />
+                </ToolBar>
+            </VBox>
+         <Label alignment="TOP_CENTER" text="Select grass growth variant:">
+            <font>
+               <Font name="System Bold" size="14.0" />
+            </font>
+         </Label>
+         <ToolBar prefHeight="40.0" prefWidth="200.0">
+           <items>
+             <Button fx:id="equator" mnemonicParsing="false" text="Forested equator" />
+               <Button fx:id="corpses" mnemonicParsing="false" text="Life-giving corpses" />
+           </items>
+         </ToolBar>
+            <VBox fx:id="fertilizationOptions">
+
+            </VBox>
+         <Label layoutX="10.0" layoutY="514.0" text="Select mutation type:">
+            <font>
+               <Font name="System Bold" size="14.0" />
+            </font></Label>
+         <ToolBar layoutX="10.0" layoutY="531.0" prefHeight="40.0" prefWidth="200.0">
+            <items>
+               <Button fx:id="randomness" mnemonicParsing="false" text="Complete randomness" />
+               <Button fx:id="replacement" mnemonicParsing="false" text="Replacement" />
+            </items>
+         </ToolBar>
+           <VBox alignment="CENTER">
+            <ToolBar prefHeight="40.0" prefWidth="200.0">
+              <items>
+                  <Label text="Add this configuration" />
+                  <TextField fx:id="configName" text="Enter title" />
+                <Button fx:id="saveButton" mnemonicParsing="false" onAction="#onSaveClicked" text="Save" />
+              </items>
+            </ToolBar>
+            <ToolBar prefHeight="40.0" prefWidth="200.0">
+              <items>
+                  <Label text="Do you want to save this simulation to CSV file?         " />
+                  <Button fx:id="saveToCSV" mnemonicParsing="false" text="OFF" />
+              </items>
+            </ToolBar>
+            <Label />
+               <Button fx:id="startButton" alignment="CENTER" contentDisplay="CENTER" minHeight="50" minWidth="100" onAction="#onSimulationStartClicked" text="Start simulation">
+               <font>
+                  <Font name="Calibri" size="22.0" />
+               </font>
+            </Button>
+           </VBox>
+            
+        </VBox>
+   </left>
+   <right>
+      <ImageView fitHeight="996.0" fitWidth="1047.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+         <image>
+            <Image url="@images/zwierzak2.jpg" />
+         </image></ImageView>
+   </right>
+   <bottom>
+      <Label alignment="CENTER_RIGHT" text="Image source:  https://github.com/Soamid/obiektowe-lab/blob/master/proj/zwierzak2.jpg" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+   </bottom>
+</BorderPane>
