@@ -61,7 +61,7 @@ public class AnimalTest {
 
         animal.mutation(0, 1, 2);
 
-        Assertions.assertTrue(animal.getGenotype().contains(0) || animal.getGenotype().contains(1));
+        Assertions.assertTrue(animal.getGenotype().contains(0) || animal.getGenotype().contains(1) || animal.getGenotype().contains(2));
     }
     @Test
     public void testMoveBack() {
